@@ -3,7 +3,7 @@ import {useHistory} from 'react-router-dom';
 
 export default function LoginPage() {
 
-    const [inputData, setInputData] = useState({
+    const [credentialFormData, setCredentialFormData] = useState({
         email: "Georgios.Goussis@yh.nackademin.se",
         password: "javascriptoramverk"
         // email: "webb19@willandskill.se",
@@ -18,8 +18,8 @@ export default function LoginPage() {
         e.preventDefault()
         const url = "https://frebi.willandskill.eu/api-token-auth/"
         const credentials = {
-            email:inputData.email,
-            password: inputData.password
+            email:credentialFormData.email,
+            password: credentialFormData.password
         }
         fetch(url, {
             method: "POST",
@@ -39,7 +39,7 @@ export default function LoginPage() {
 
     function handleOnchange(e){
         console.log(e.target.name, e.target.value)
-        setInputData({...inputData, [e.target.name]: e.target.value})
+        setCredentialFormData({...credentialFormData, [e.target.name]: e.target.value})
     
     }
 
@@ -49,10 +49,10 @@ export default function LoginPage() {
 
     <form onSubmit={handleOnSubmit}>
     <label>Email
-    <input name="email" value={inputData.email} onChange={handleOnchange}/>
+    <input name="email" value={credentialFormData.email} onChange={handleOnchange}/>
     </label>
     <label>Password</label>
-    <input name="password" value={inputData.password} onChange={handleOnchange}/>
+    <input name="password" value={credentialFormData.password} onChange={handleOnchange}/>
     <button type="submit">Login</button>
     </form>
       
