@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+
+.menu-backgroud {
+  background-color: #5be2e2;
+}
+
+.nav-text-color {
+  color: #0669eb;
+  font-weight: bold;
+}
+
