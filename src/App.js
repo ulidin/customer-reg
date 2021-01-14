@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import {Switch, Route, useHistory} from 'react-router-dom'
+import {Switch, Route} from 'react-router-dom'
 import NavLinkItem from './components/NavLinkItem'
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage'
@@ -19,20 +19,17 @@ function App() {
       <div className="container-fluid">
         {/* <span className="navbar-brand mb-0 h1">Login to Register</span> */}
          
-         <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav">
             {/* <NavLinkItem className="active" aria-current="page" to="/login" text="Login" /> */}
             <NavLinkItem className="active" aria-current="page"/>
             <NavLinkItem to="/home" text="Home Page" />
             <NavLinkItem to="/home/create" text="Create New Customer" />
-            {/* <NavLinkItem to="/createNewCustomer" text="Update Customer" />
-            <NavLinkItem to="/createNewCustomer" text="Delete Customer" /> */}
             <NavLinkItem to="/login" text="Login" />
           </ul>
-      
+        </div>
       </div>
-      </div>
-      </nav>
+    </nav>
 
     <Switch>
       
@@ -66,9 +63,9 @@ function App() {
         <HomePage />
       </Route>
 
-      {/* <Route path="/">
-        <h1>Please login</h1>
-      </Route> */}
+      <Route path="/">
+        <h1>Please login to administrate customers</h1>
+      </Route>
 
     </Switch>
 

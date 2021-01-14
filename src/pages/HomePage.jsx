@@ -44,21 +44,6 @@ export default function HomePage() {
       {customerList.map(item => {
         return <CustomerListItem key={item.id} customerData={item} />
       })}
-      
-      {/* </td>
-      <td>
-      {customerList.map(item => {
-        return <CustomerListItem key={item.organisationNr} customerData={item} />
-      })}
-      </td>
-      <td>
-      {customerList.map(item => {
-        return <CustomerListItem key={item.vatNr} customerData={item} />
-      })}
-      </td>
-      </tr>
-        </tbody>
-      </Table>*/}
     </div> 
   );
 }

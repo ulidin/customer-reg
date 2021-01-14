@@ -3,15 +3,18 @@ import {useHistory} from 'react-router-dom';
 
 export default function LoginPage() {
 
+    // const [credentialFormData, setCredentialFormData] = useState({
+    //     email: "Georgios.Goussis@yh.nackademin.se",
+    //     password: "javascriptoramverk"
+    // })
     const [credentialFormData, setCredentialFormData] = useState({
-        // email: "Georgios.Goussis@yh.nackademin.se",
-        // password: "javascriptoramverk"
         email: "",
         password: ""
     })
+    
 
     const history = useHistory()
-    console.log("history: "+ history)
+    
 
     function handleOnSubmit(e){
         e.preventDefault()
@@ -20,6 +23,7 @@ export default function LoginPage() {
             email:credentialFormData.email,
             password: credentialFormData.password
         }
+
         fetch(url, {
             method: "POST",
             body: JSON.stringify(credentials),
@@ -37,6 +41,7 @@ export default function LoginPage() {
     function handleOnchange(e){
         console.log(e.target.name, e.target.value)
         setCredentialFormData({...credentialFormData, [e.target.name]: e.target.value})
+
     
     }
 
