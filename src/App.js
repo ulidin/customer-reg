@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div>
-    <h1>Customer Registration Plattform</h1>  
+    <h1>Customer Registration Platform</h1>  
 
     <nav className="navbar navbar-expand-lg navbar-light nav-text-color menu-backgroud  p-3">
       <div className="container-fluid">

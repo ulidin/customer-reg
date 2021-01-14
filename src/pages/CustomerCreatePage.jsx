@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { useHistory } from 'react-router-dom'
+import CustomerAPIItem from '../components/CustomerAPIItem'
 
 export default function CustomerCreatePage() {
   const [formData, setFormData] = useState({})
@@ -27,16 +28,8 @@ export default function CustomerCreatePage() {
 
   function handleOnSubmit(e){
     e.preventDefault()
-    const url = "https://frebi.willandskill.eu/api/v1/customers/"
-    const token = localStorage.getItem("CUSTOMERS")
-    fetch(url, {
-      method: "POST",
-      body: JSON.stringify(formData),
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`
-      }
-    })
+ 
+    CustomerAPIItem(null, "POST", JSON.stringify(formData) )
     .then( res => res.json())
     .then( data => {
       history.push('/home')

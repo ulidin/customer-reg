@@ -6,6 +6,8 @@ export default function CustomerAPIItem(customerId, method, body){
         let url
         if (customerId == null){
           url = urlBase
+        }else if (customerId === "me"){
+            url = "https://frebi.willandskill.eu/api/v1/me/"
         }else{
           url = urlBase+customerId+"/"
         }

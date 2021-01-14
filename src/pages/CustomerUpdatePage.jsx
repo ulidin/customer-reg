@@ -1,25 +1,17 @@
 import React, {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
+import CustomerAPIItem from '../components/CustomerAPIItem'
 export default function CustomerUpdatePage(props) {
     const customerId = props.match.params.id;
     const [formData, setFormData] = useState({})
     const history = useHistory()
 
-    function getCustomerItem(){
-        const url = `https://frebi.willandskill.eu/api/v1/customers/${customerId}/`
-        const token = localStorage.getItem('CUSTOMERS')
-        fetch(url, {
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`
-            }
-        })
+  
+    useEffect( () => {
+        // getCustomerItem()
+        CustomerAPIItem(customerId, "GET", null)
         .then(res => res.json())
         .then(data => setFormData(data))
-    }
-
-    useEffect( () => {
-        getCustomerItem()
       }, [])
 
 
@@ -43,18 +35,10 @@ export default function CustomerUpdatePage(props) {
 
       function handleOnSubmit(e) {
         e.preventDefault()
-        const url = `https://frebi.willandskill.eu/api/v1/customers/${customerId}/`
-        const token = localStorage.getItem("CUSTOMERS")
-        fetch(url, {
-          method: "PUT",
-          body: JSON.stringify(formData),
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`
-          }
-        })
+
+        CustomerAPIItem(customerId, "PUT", JSON.stringify(formData))
         .then(res => res.json())
-        .then(() => history.push(`/customers/${customerId}`))
+        .then(() => history.push(`/home/${customerId}`))
       }
     
       return (
