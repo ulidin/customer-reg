@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory, Link } from 'react-router-dom'
+import CustomerAPIItem from '../components/CustomerAPIItem'
 
 export default function CustomerDetailPage(props) {
   const customerId = props.match.params.id
@@ -8,27 +9,27 @@ export default function CustomerDetailPage(props) {
 
 
 
-  function callCustomerAPI(customerId, method, body) {
-     const urlBase = "https://frebi.willandskill.eu/api/v1/customers/"
-     let url
-     if (customerId == null){
-       url = urlBase
-     }else{
-       url = urlBase+customerId+"/"
-     }
-     const token = localStorage.getItem("CUSTOMERS")
-     return(
-     fetch(url, {
-       method: method,
-       body: body,
-       headers: {
-         "Content-Type": "application/json",
-         "Authorization": `Bearer ${token}`
-       }
-     })
+  // function callCustomerAPI(customerId, method, body) {
+  //    const urlBase = "https://frebi.willandskill.eu/api/v1/customers/"
+  //    let url
+  //    if (customerId == null){
+  //      url = urlBase
+  //    }else{
+  //      url = urlBase+customerId+"/"
+  //    }
+  //    const token = localStorage.getItem("CUSTOMERS")
+  //    return(
+  //    fetch(url, {
+  //      method: method,
+  //      body: body,
+  //      headers: {
+  //        "Content-Type": "application/json",
+  //        "Authorization": `Bearer ${token}`
+  //      }
+  //    })
 
-     )
-  }
+  //    )
+  // }
 
 
 
@@ -55,13 +56,13 @@ export default function CustomerDetailPage(props) {
     //     "Authorization": `Bearer ${token}`
     //   }
     // })
-    callCustomerAPI(customerId, "DELETE", null)
+    CustomerAPIItem(customerId, "DELETE", null)
     .then(() => history.push('/home'))
   }
 
   useEffect( () => {
     // getCustomerItem()
-    callCustomerAPI(customerId, "GET", null)
+    CustomerAPIItem(customerId, "GET", null)
 
     .then(res => res.json())
     .then(data => setCustomerItem(data))
