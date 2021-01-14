@@ -25,25 +25,22 @@ export default function HomePage() {
     }
 
   return (
-    <div>
-      <h2>Home Page</h2>
-
+    <div className="table-responsive">
       <Table striped bordered hover className="table">
         <thead>
           <tr>
             <th>Customer Name</th>
-            <th>Oraganisation number</th>
+            <th>Organisation number</th>
             <th>Vat nr</th>
           </tr>
         </thead>
-        </Table>
-        
-        {/* <tbody>
-          <tr>
-            <td> */}
+        <tbody>
       {customerList.map(item => {
         return <CustomerListItem key={item.id} customerData={item} />
       })}
+
+        </tbody>
+        </Table>
     </div> 
   );
 }
