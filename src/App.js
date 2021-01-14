@@ -6,30 +6,29 @@ import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage'
 import CustomerCreatePage from './pages/CustomerCreatePage';
 import CustomerDetailPage from './pages/CustomerDetailPage';
+import CustomerUpdatePage from './pages/CustomerUpdatePage';
 
 
 function App() {
-  const { push } = useHistory()
 
   return (
     <div>
-    <h1>Welcom to Customer Registration</h1>  
+    <h1>Customer Registration Plattform</h1>  
 
     <nav className="navbar navbar-expand-lg navbar-light nav-text-color menu-backgroud  p-3">
       <div className="container-fluid">
         {/* <span className="navbar-brand mb-0 h1">Login to Register</span> */}
+         
          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        
-        <ul className="navbar-nav">
-          {/* <NavLinkItem className="active" aria-current="page" to="/login" text="Login" /> */}
-          <NavLinkItem className="active" aria-current="page"/>
-          <NavLinkItem to="/home" text="Home Page" />
-          {/* <NavLinkItem to="/customerDetails" text="Customer Details" /> */}
-          <NavLinkItem to="/createNewCustomer" text="Create New Customer" />
-          <NavLinkItem to="/createNewCustomer" text="Update Customer" />
-          <NavLinkItem to="/createNewCustomer" text="Delete Customer" />
-          <NavLinkItem to="/login" text="Login" />
-        </ul>
+          <ul className="navbar-nav">
+            {/* <NavLinkItem className="active" aria-current="page" to="/login" text="Login" /> */}
+            <NavLinkItem className="active" aria-current="page"/>
+            <NavLinkItem to="/home" text="Home Page" />
+            <NavLinkItem to="/home/create" text="Create New Customer" />
+            {/* <NavLinkItem to="/createNewCustomer" text="Update Customer" />
+            <NavLinkItem to="/createNewCustomer" text="Delete Customer" /> */}
+            <NavLinkItem to="/login" text="Login" />
+          </ul>
       
       </div>
       </div>
@@ -37,22 +36,39 @@ function App() {
 
     <Switch>
       
-      <Route path="/createNewCustomer">
+      {/* <Route path="/createNewCustomer">
         <CustomerCreatePage />
       </Route>
 
+      <Route path="/updateCustomer">
+        <CustomerCreatePage />
+      </Route> */}
 
       <Route path="/login">
         <LoginPage />
       </Route>
+
+      <Route path="/home/create">
+          <CustomerCreatePage />
+        </Route>
+
+      <Route 
+          path="/home/:id/edit" 
+          component={CustomerUpdatePage} 
+        />
       
       <Route 
           path="/home/:id" 
           component={CustomerDetailPage} 
         />
+
       <Route path="/home">
         <HomePage />
       </Route>
+
+      {/* <Route path="/">
+        <h1>Please login</h1>
+      </Route> */}
 
     </Switch>
 

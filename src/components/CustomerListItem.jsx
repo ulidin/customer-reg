@@ -6,13 +6,6 @@ export default function CustomerListItem({ customerData }) {
   return (
     <div className="table-responsive">
       <Table striped bordered hover className="table">
-        {/* <thead>
-          <tr>
-            <th>Customer Name</th>
-            <th>Oraganisation number</th>
-            <th>Vat nr</th>
-          </tr>
-        </thead> */}
         <tbody>
           <tr>
             <td>

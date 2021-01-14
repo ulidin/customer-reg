@@ -16,9 +16,9 @@ export default function CustomerCreatePage() {
     return (
       <div>
         <label>{label}</label>
-        <input 
-          type={type || "text"} 
-          name={name} 
+        <input
+          type={type || "text"}
+          name={name}
           onChange={handleOnChange}
         />
       </div>
@@ -39,13 +39,13 @@ export default function CustomerCreatePage() {
     })
     .then( res => res.json())
     .then( data => {
-      history.push('/customers')
+      history.push('/home')
     })
   }
 
   return (
     <div>
-      <h1>Create Customer</h1>
+      <h1>Create New Customer</h1>
       <form onSubmit={handleOnSubmit}>
         {renderInput("name", "Customer Name")}
         {renderInput("organisationNr", "Organisation Number")}
@@ -57,9 +57,7 @@ export default function CustomerCreatePage() {
         {renderInput("phoneNumber", "Phone Number", "tel")}
         <br/>
         <button type="submit">Create Customer</button>
-
       </form>
-      <code>{JSON.stringify(formData)}</code>
     </div>
   )
 }

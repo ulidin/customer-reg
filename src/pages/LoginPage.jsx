@@ -4,11 +4,10 @@ import {useHistory} from 'react-router-dom';
 export default function LoginPage() {
 
     const [credentialFormData, setCredentialFormData] = useState({
-        email: "Georgios.Goussis@yh.nackademin.se",
-        password: "javascriptoramverk"
-        // email: "webb19@willandskill.se",
+        // email: "Georgios.Goussis@yh.nackademin.se",
         // password: "javascriptoramverk"
-
+        email: "",
+        password: ""
     })
 
     const history = useHistory()
@@ -30,10 +29,8 @@ export default function LoginPage() {
         })
         .then(res => res.json())
         .then(data => {
-            console.log("Login: " +data)
-            console.log(data.token)
             localStorage.setItem("CUSTOMERS", data.token)
-            history.push("/HomePage")
+            history.push("/home")
         })
     }
 
