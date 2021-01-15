@@ -1,28 +1,36 @@
 import React, {useState, useEffect} from 'react';
+import {Table} from "react-bootstrap";
 import CustomerListItem from '../components/CustomerListItem';
-import {Table} from "react-bootstrap"
+import CustomerAPIItem from '../components/CustomerAPIItem';
 
 
 export default function HomePage() {
     const [customerList, setCustomerList] = useState([])
 
+    // useEffect( () => {
+    //     getCustomerList()
+    // }, [])
+
     useEffect( () => {
-        getCustomerList()
+      // getCustomerItem()
+      CustomerAPIItem(null , "GET", null)
+      .then(res => res.json())
+      .then(data => setCustomerList(data.results))
     }, [])
 
-    function getCustomerList() {
-        const url = "https://frebi.willandskill.eu/api/v1/customers/"
-        const token = localStorage.getItem("CUSTOMERS")
-        fetch (url, {
-            headers: {
-                "Content-Type" : "application/json",
-                "Authorization": `Bearer ${token}`
-            }
-        })
-        .then(res => res.json())
-        .then(data => setCustomerList(data.results))
+    // function getCustomerList() {
+    //     const url = "https://frebi.willandskill.eu/api/v1/customers/"
+    //     const token = localStorage.getItem("CUSTOMERS")
+    //     fetch (url, {
+    //         headers: {
+    //             "Content-Type" : "application/json",
+    //             "Authorization": `Bearer ${token}`
+    //         }
+    //     })
+    //     .then(res => res.json())
+    //     .then(data => setCustomerList(data.results))
             
-    }
+    // }
 
   return (
     <div className="table-responsive">

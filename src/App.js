@@ -33,14 +33,6 @@ function App() {
 
     <Switch>
       
-      {/* <Route path="/createNewCustomer">
-        <CustomerCreatePage />
-      </Route>
-
-      <Route path="/updateCustomer">
-        <CustomerCreatePage />
-      </Route> */}
-
       <Route path="/login">
         <LoginPage />
       </Route>
@@ -68,11 +60,6 @@ function App() {
       </Route>
 
     </Switch>
-
-    {/* <button type="button" onClick={() => push('/login')}>
-    Login to Administration
-    </button> */}
-    
 
     </div>
   );
