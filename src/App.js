@@ -7,7 +7,14 @@ import LoginPage from './pages/LoginPage'
 import CustomerCreatePage from './pages/CustomerCreatePage';
 import CustomerDetailPage from './pages/CustomerDetailPage';
 import CustomerUpdatePage from './pages/CustomerUpdatePage';
+import 'bootstrap/dist/css/bootstrap.css'
+import styled from 'styled-components'
 
+
+const Heading = styled.h1`
+  font-size: 2rem;
+  color: #a70a3e;
+  `
 
 function App() {
 
@@ -15,7 +22,7 @@ function App() {
     <div>
     <h1>Customer Registration Platform</h1>  
 
-    <nav className="navbar navbar-expand-lg navbar-light nav-text-color menu-backgroud  p-3">
+    <nav className="navbar navbar-expand-lg navbar-light nav-text-color menu-backgroud  p-1">
       <div className="container-fluid">
         {/* <span className="navbar-brand mb-0 h1">Login to Register</span> */}
          
@@ -29,6 +36,20 @@ function App() {
           </ul>
         </div>
       </div>
+      <nav className="justify-content-end pr-lg-5">
+        <form>
+        <div>
+        <label>Email: </label>
+        <output>Test</output>
+        </div>
+        <div>
+        <label>FirstName: </label>
+        <output>Test</output>
+        <label>LastName: </label>
+        <output>Test</output>
+        </div>
+        </form>
+      </nav>
     </nav>
 
     <Switch>
@@ -56,7 +77,7 @@ function App() {
       </Route>
 
       <Route path="/">
-        <h1>Please login to administrate customers</h1>
+        <Heading>Please login to administrate customers.</Heading>
       </Route>
 
     </Switch>

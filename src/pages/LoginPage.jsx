@@ -1,20 +1,38 @@
 import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
+import styled from 'styled-components'
 
+const HeaderMinor = styled.h3`
+    margin-left: 1rem;
+    margin-top: 1rem;
+    color: #e45b5b;
+`
+
+const Button = styled.button`
+  margin-top: 1rem;
+  margin-left: 0.2rem;
+  background-color:#ace79d;
+`
+const Label = styled.label`
+    margin-left: 1rem;
+    margin-right: 0.2rem;
+`
+const Input = styled.input`
+    color:aquamarine;
+`
 export default function LoginPage() {
-
     // const [credentialFormData, setCredentialFormData] = useState({
     //     email: "Georgios.Goussis@yh.nackademin.se",
     //     password: "javascriptoramverk"
     // })
+
+    
     const [credentialFormData, setCredentialFormData] = useState({
         email: "",
         password: ""
     })
     
-
     const history = useHistory()
-    
 
     function handleOnSubmit(e){
         e.preventDefault()
@@ -38,26 +56,24 @@ export default function LoginPage() {
         })
     }
 
+
     function handleOnchange(e){
         console.log(e.target.name, e.target.value)
         setCredentialFormData({...credentialFormData, [e.target.name]: e.target.value})
-
-    
     }
 
+     
   return (
     <div>
-    <h3>Please login for Customer Administration</h3>
+        <HeaderMinor>Please login for Customer Administration</HeaderMinor>
 
-    <form onSubmit={handleOnSubmit}>
-    <label>Email
-    <input name="email" value={credentialFormData.email} onChange={handleOnchange}/>
-    </label>
-    <label>Password</label>
-    <input name="password" value={credentialFormData.password} onChange={handleOnchange}/>
-    <button type="submit">Login</button>
-    </form>
-      
+        <form onSubmit={handleOnSubmit}>
+            <Label>Email</Label>
+                <Input name="email" value={credentialFormData.email} onChange={handleOnchange}/>
+            <Label>Password</Label>
+                <input name="password" value={credentialFormData.password} onChange={handleOnchange}/>
+                <Button type="submit">Login</Button>
+        </form>
     </div>
   );
 }

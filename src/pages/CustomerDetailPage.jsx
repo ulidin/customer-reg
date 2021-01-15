@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory, Link } from 'react-router-dom'
 import CustomerAPIItem from '../components/CustomerAPIItem'
+import styled from 'styled-components'
 
+const Button = styled.button`
+  padding: 5rem;
+  background-color:#E1E1E1;
+`
 export default function CustomerDetailPage(props) {
   const customerId = props.match.params.id
   const [customerItem, setCustomerItem] = useState(null)
@@ -74,7 +79,7 @@ export default function CustomerDetailPage(props) {
 
             </tbody>
           </table>
-          <button onClick={deleteCustomer}>Delete Customer</button>
+          <Button onClick={deleteCustomer}>Delete Customer</Button>
           <Link to={`/home/${customerId}/edit`}>Update Customer</Link> 
         </div>
       )
