@@ -3,8 +3,14 @@ import { useHistory, Link } from 'react-router-dom'
 import CustomerAPIItem from '../components/CustomerAPIItem'
 import styled from 'styled-components'
 
+
+const Div = styled.div`
+margin-left: 20px;
+`
+
 const Button = styled.button`
-  padding: 5rem;
+  margin: 10px 23px 0 0;
+  padding: 5px;
   background-color:#E1E1E1;
 `
 export default function CustomerDetailPage(props) {
@@ -30,7 +36,7 @@ export default function CustomerDetailPage(props) {
     <div>
       {customerItem 
       ? (
-        <div>
+        <Div>
           <h1>{customerItem.name}</h1>
           <table>
             <tbody>
@@ -81,7 +87,7 @@ export default function CustomerDetailPage(props) {
           </table>
           <Button onClick={deleteCustomer}>Delete Customer</Button>
           <Link to={`/home/${customerId}/edit`}>Update Customer</Link> 
-        </div>
+        </Div>
       )
       :
       (
