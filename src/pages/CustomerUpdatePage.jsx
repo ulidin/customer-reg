@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
 import CustomerAPIItem from '../components/CustomerAPIItem'
+import { Headermiddle, Form, Label, Input, Button } from '../components/FormStyled'
+
 export default function CustomerUpdatePage(props) {
     const customerId = props.match.params.id;
     const [formData, setFormData] = useState({})
@@ -22,8 +24,8 @@ export default function CustomerUpdatePage(props) {
       function renderInput(name, label, type) {
         return (
           <div>
-            <label>{label}</label>
-            <input 
+            <Label>{label}</Label>
+            <Input 
               type={type || "text"} 
               name={name}
               value={formData[name] || ""}
@@ -43,8 +45,8 @@ export default function CustomerUpdatePage(props) {
     
       return (
         <div>
-          <h1>Update Customer</h1>
-          <form onSubmit={handleOnSubmit}>
+          <Headermiddle>Update Customer</Headermiddle>
+          <Form onSubmit={handleOnSubmit}>
             {renderInput("name", "Customer Name")}
             {renderInput("organisationNr", "Organisation Number")}
             {renderInput("vatNr", "Vat Number")}
@@ -54,8 +56,8 @@ export default function CustomerUpdatePage(props) {
             {renderInput("email", "Customer Email", "email")}
             {renderInput("phoneNumber", "Phone Number", "tel")}
 
-            <button type="submit">Update Customer</button>
-          </form>
+            <Button type="submit">Update Customer</Button>
+          </Form>
     
         </div>
       )
