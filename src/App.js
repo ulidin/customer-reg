@@ -40,13 +40,13 @@ function App() {
         <form>
         <div>
         <label>Email: </label>
-        <output>Test</output>
+        <output>Testwrtwertwetwe</output>
         </div>
         <div>
         <label>FirstName: </label>
-        <output>Test</output>
+        <output>Testklödjkglsdklfös</output>
         <label>LastName: </label>
-        <output>Test</output>
+        <output>Tesewrtwetwettt</output>
         </div>
         </form>
       </nav>

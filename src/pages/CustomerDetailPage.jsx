@@ -8,6 +8,12 @@ const Div = styled.div`
 margin-left: 20px;
 `
 
+const Span = styled.span`
+  font-size: 20px;
+  color: green;
+  background-color: #CEF6F5;
+`
+
 const Button = styled.button`
   margin: 10px 23px 0 0;
   padding: 5px;
@@ -46,8 +52,8 @@ export default function CustomerDetailPage(props) {
               </tr>
 
               <tr>
-                <td>Payment Term</td>
-                <td>{customerItem.vatNr}</td>
+                <td>VAT Number</td>
+                <td>{customerItem.paymentTerm}</td>
               </tr>
 
               <tr>
@@ -56,8 +62,8 @@ export default function CustomerDetailPage(props) {
               </tr>
 
               <tr>
-                <td>VAT Number</td>
-                <td>{customerItem.paymentTerm}</td>
+                <td>Payment Term</td>
+                <td>{customerItem.vatNr}</td>
               </tr>
 
               <tr>
@@ -86,7 +92,7 @@ export default function CustomerDetailPage(props) {
             </tbody>
           </table>
           <Button onClick={deleteCustomer}>Delete Customer</Button>
-          <Link to={`/home/${customerId}/edit`}>Update Customer</Link> 
+          <Link to={`/home/${customerId}/edit`}><Span>Update Customer</Span></Link>
         </Div>
       )
       :

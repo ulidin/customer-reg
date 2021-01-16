@@ -35,7 +35,7 @@ const Label = styled.label`
 `
 
 const Input = styled.input`
-  height: 20px;
+  height: 30px;
   width: 300px;
   border: 1px solid #000;
   margin-top: 10px;
