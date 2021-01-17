@@ -20,7 +20,7 @@ const Label = styled.label`
 const Input = styled.input`
     color:aquamarine;
 `
-export default function LoginPage() {
+export default function LoginPage({ setToken }) {
     // const [credentialFormData, setCredentialFormData] = useState({
     //     email: "Georgios.Goussis@yh.nackademin.se",
     //     password: "javascriptoramverk"
@@ -51,8 +51,9 @@ export default function LoginPage() {
         })
         .then(res => res.json())
         .then(data => {
-            localStorage.setItem("CUSTOMERS", data.token)
-            history.push("/home")
+            // localStorage.setItem("CUSTOMERS", data.token)
+            setToken(data.token);
+            // history.push("/home")
         })
     }
 

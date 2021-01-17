@@ -9,24 +9,35 @@ import CustomerDetailPage from './pages/CustomerDetailPage';
 import CustomerUpdatePage from './pages/CustomerUpdatePage';
 import 'bootstrap/dist/css/bootstrap.css'
 import styled from 'styled-components'
+import WhoAmI from './pages/WhoAmI';
+import UseToken from './components/UseToken'
 
 
-const Heading = styled.h1`
-  font-size: 2rem;
-  color: #a70a3e;
-  `
+// const Heading = styled.h1`
+//   font-size: 2rem;
+//   color: #a70a3e;
+//   `
 
 function App() {
+
+  const { token, setToken } = UseToken();
+
+  if(!token) {
+    return <LoginPage setToken={setToken} />
+  }
+
+
 
   return (
     <div>
     <h1>Customer Registration Platform</h1>  
 
     <nav className="navbar navbar-expand-lg navbar-light nav-text-color menu-backgroud  p-1">
-      <div className="container-fluid">
+      <div className="container-fluid" style={{width: 570}} ml-10 pl-0>
         {/* <span className="navbar-brand mb-0 h1">Login to Register</span> */}
          
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        {/* <div className="collapse navbar-collapse" id="navbarSupportedContent" navbar-expand= "sm|-md|-lg|-xl"> */}
+        <div  id="navbarSupportedContent" navbar-expand= "sm|-md|-lg|-xl">
           <ul className="navbar-nav">
             {/* <NavLinkItem className="active" aria-current="page" to="/login" text="Login" /> */}
             <NavLinkItem className="active" aria-current="page"/>
@@ -36,21 +47,9 @@ function App() {
           </ul>
         </div>
       </div>
-      <nav className="justify-content-end pr-lg-5">
-        <form>
-        <div>
-        <label>Email: </label>
-        <output>Testwrtwertwetwe</output>
-        </div>
-        <div>
-        <label>FirstName: </label>
-        <output>Testklödjkglsdklfös</output>
-        <label>LastName: </label>
-        <output>Tesewrtwetwettt</output>
-        </div>
-        </form>
-      </nav>
+      <WhoAmI />
     </nav>
+
 
     <Switch>
       
@@ -77,7 +76,7 @@ function App() {
       </Route>
 
       <Route path="/">
-        <Heading>Please login to administrate customers.</Heading>
+        {/* <Heading>Please login to administrate customers.</Heading> */}
       </Route>
 
     </Switch>
