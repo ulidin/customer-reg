@@ -20,13 +20,7 @@ const Label = styled.label`
 const Input = styled.input`
     color:aquamarine;
 `
-export default function LoginPage({ setToken }) {
-    // const [credentialFormData, setCredentialFormData] = useState({
-    //     email: "Georgios.Goussis@yh.nackademin.se",
-    //     password: "javascriptoramverk"
-    // })
-
-    
+export default function LoginPage() { 
     const [credentialFormData, setCredentialFormData] = useState({
         email: "",
         password: ""
@@ -51,9 +45,8 @@ export default function LoginPage({ setToken }) {
         })
         .then(res => res.json())
         .then(data => {
-            // localStorage.setItem("CUSTOMERS", data.token)
-            setToken(data.token);
-            // history.push("/home")
+            localStorage.setItem("CUSTOMERS", data.token)
+            history.push("/home")
         })
     }
 
@@ -63,7 +56,6 @@ export default function LoginPage({ setToken }) {
         setCredentialFormData({...credentialFormData, [e.target.name]: e.target.value})
     }
 
-     
   return (
     <div>
         <HeaderMinor>Please login for Customer Administration</HeaderMinor>

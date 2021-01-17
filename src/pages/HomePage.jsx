@@ -9,8 +9,6 @@ const Heading = styled.h1`
   color: #a70a3e;
   `
 
-
-
 export default function HomePage() {
     const [customerList, setCustomerList] = useState([])
 
@@ -22,6 +20,10 @@ export default function HomePage() {
     }, [])
 
     return (
+    <div>
+    <script>
+      window.location.reload()
+    </script>
     <div className="table-responsive">
     {customerList
     ?(
@@ -50,5 +52,6 @@ export default function HomePage() {
     )
     }
     </div> 
+    </div>
   );
 }

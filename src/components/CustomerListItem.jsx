@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 
-export default function CustomerListItem({ customerData }) {
+export default function CustomerListItem({ customerData, }) {
+  
   return (
           <tr>
             <td>
